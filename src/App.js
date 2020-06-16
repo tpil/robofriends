@@ -2,6 +2,7 @@ import React from 'react';
 import CardList from './CardList';
 import SearchBox from './SearchBox';
 import {robots} from './robots';  //we need to destruct cause I didn't export default
+import Scroll from './Scroll';
 import './App.css';
 
 class App extends React.Component{
@@ -41,7 +42,9 @@ class App extends React.Component{
                 <div className='tc'>
                     <h1 className='f1'>Robo Friends</h1>
                     <SearchBox searchChange = {this.onSearchChange}/>
-                    <CardList robots={filteredRobots} />
+                    <Scroll>
+                        <CardList robots={filteredRobots} />
+                    </Scroll>
                 </div>
             );
         }
@@ -66,4 +69,5 @@ export default App;
 8. We used react lifecycle methods to fetch() (it's a window.fetch() method which come to all browsers) 
     some predefined users from a page (API). Convert to JSON file and setState robots with the new array. 
     Removed the robots.js array.
+9. We created a <Scroll /> to wrap the cardlist in so we can see search bar all the time.    
 */
