@@ -1,8 +1,8 @@
 import React from 'react';
-import CardList from './CardList';
-import SearchBox from './SearchBox';
-import {robots} from './robots';  //we need to destruct cause I didn't export default
-import Scroll from './Scroll';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import {robots} from '../robots';  //we need to destruct cause I didn't export default
+import Scroll from '../components/Scroll';
 import './App.css';
 
 class App extends React.Component{
@@ -30,12 +30,13 @@ class App extends React.Component{
       
     }
     render(){
-        const filteredRobots = this.state.robots.filter(robot =>{
-            return robot.name.toLocaleLowerCase().includes(this.state.searchfield.toLocaleLowerCase());
+        const {robots,searchfield} = this.state; //we deconstruct this.state so we don't need to use it
+        const filteredRobots = robots.filter(robot =>{
+            return robot.name.toLocaleLowerCase().includes(searchfield.toLocaleLowerCase());
 
         });
         //console.log(filteredRobots);
-        if (this.state.robots.length === 0){
+        if (robots.length === 0){
             return <h1>Loading ...</h1>
         }else{
             return(
@@ -69,5 +70,7 @@ export default App;
 8. We used react lifecycle methods to fetch() (it's a window.fetch() method which come to all browsers) 
     some predefined users from a page (API). Convert to JSON file and setState robots with the new array. 
     Removed the robots.js array.
-9. We created a <Scroll /> to wrap the cardlist in so we can see search bar all the time.    
+9. We created a <Scroll /> to wrap the cardlist in so we can see search bar all the time. 
+10. Clean up code and ile organize  
+11. npm build
 */
