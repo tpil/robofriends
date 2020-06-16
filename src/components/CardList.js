@@ -1,8 +1,11 @@
 import React from 'react';
 import Card from './Card.js';
 const CardList =({robots}) =>{
- 
-
+    /*This will use our custom ErrorBoundary component
+    if(true){
+        throw new Error('This is some error');
+    }
+    */
     return(
         <div>
          {

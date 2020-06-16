@@ -3,7 +3,9 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import {robots} from '../robots';  //we need to destruct cause I didn't export default
 import Scroll from '../components/Scroll';
+import ErrorBoundary from '../components/ErrorBoundary';
 import './App.css';
+
 
 class App extends React.Component{
     constructor(){
@@ -44,7 +46,9 @@ class App extends React.Component{
                     <h1 className='f1'>Robo Friends</h1>
                     <SearchBox searchChange = {this.onSearchChange}/>
                     <Scroll>
-                        <CardList robots={filteredRobots} />
+                        <ErrorBoundary>
+                            <CardList robots={filteredRobots} />
+                        </ErrorBoundary>
                     </Scroll>
                 </div>
             );
@@ -72,5 +76,6 @@ export default App;
     Removed the robots.js array.
 9. We created a <Scroll /> to wrap the cardlist in so we can see search bar all the time. 
 10. Clean up code and ile organize  
-11. npm build
+11. npm build or npm run build
+12. Implement Errorboundaries (handle React errors and display them in a better way)
 */
