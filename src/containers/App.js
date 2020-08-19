@@ -1,7 +1,7 @@
 import React from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
-import {robots} from '../robots';  //we need to destruct cause I didn't export default
+//import {robots} from '../robots';  //we need to destruct cause I didn't export default
 import Scroll from '../components/Scroll';
 import ErrorBoundary from '../components/ErrorBoundary';
 import './App.css';
